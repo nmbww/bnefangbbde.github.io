@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>马克思主义基本原理宣传网</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D22630', // 主红色
+                        secondary: '#1E3A8A', // 辅深蓝色
+                        neutral: '#F8F9FA', // 浅灰背景
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
+    <style>
+        /* 基础兼容样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 名言轮播动画 */
+        .quote-slide {
+            animation: fade 8s infinite;
+        }
+        @keyframes fade {
+            0%, 100% { opacity: 0; }
+            10%, 90% { opacity: 1; }
+        }
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-neutral scroll-smooth">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 bg-blur shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-book-open text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-secondary">马克思主义基本原理</span>
+            </a>
+            <!-- 桌面端导航 -->
+            <ul class="hidden md:flex gap-6">
+                <li><a href="#hero" class="text-secondary hover:text-primary transition-colors font-medium">首页</a></li>
+                <li><a href="#overview" class="text-secondary hover:text-primary transition-colors font-medium">原理概述</a></li>
+                <li><a href="#core" class="text-secondary hover:text-primary transition-colors font-medium">核心观点</a></li>
+                <li><a href="#practice" class="text-secondary hover:text-primary transition-colors font-medium">实践意义</a></li>
+                <li><a href="#quotes" class="text-secondary hover:text-primary transition-colors font-medium">经典名言</a></li>
+            </ul>
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-secondary text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <ul class="container mx-auto px-4 py-2 flex flex-col gap-3">
+                <li><a href="#hero" class="py-2 text-secondary hover:text-primary transition-colors font-medium">首页</a></li>
+                <li><a href="#overview" class="py-2 text-secondary hover:text-primary transition-colors font-medium">原理概述</a></li>
+                <li><a href="#core" class="py-2 text-secondary hover:text-primary transition-colors font-medium">核心观点</a></li>
+                <li><a href="#practice" class="py-2 text-secondary hover:text-primary transition-colors font-medium">实践意义</a></li>
+                <li><a href="#quotes" class="py-2 text-secondary hover:text-primary transition-colors font-medium">经典名言</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- 背景图 -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1076/1920/1080" alt="马克思主义背景" class="w-full h-full object-cover opacity-80">
+            <div class="absolute inset-0 bg-secondary/50"></div>
+        </div>
+        <!-- 内容 -->
+        <div class="container mx-auto px-4 z-10 text-center text-white">
+            <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold mb-4 text-shadow animate-fadeIn">
+                马克思主义基本原理
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.5rem)] mb-8 max-w-3xl mx-auto text-shadow">
+                揭示人类社会发展规律的科学理论，指引人类解放的思想旗帜
+            </p>
+            <a href="#overview" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-lg transition-all transform hover:scale-105 shadow-lg">
+                了解更多 <i class="fa-solid fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 原理概述 -->
+    <section id="overview" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary mb-4">马克思主义基本原理概述</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    马克思主义是由马克思和恩格斯创立并为后继者所不断发展的科学理论体系，是关于自然、社会和人类思维发展一般规律的学说，是关于社会主义必然代替资本主义、最终实现共产主义的学说。
+                </p>
+            </div>
+
+            <!-- 概述卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 卡片1 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 fade-in">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-atom text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3 text-center">辩证唯物主义</h3>
+                    <p class="text-gray-600 text-center">
+                        认为世界的本原是物质，物质决定意识，意识对物质具有能动反作用；事物发展是对立统一、质量互变、否定之否定的过程。
+                    </p>
+                </div>
+                <!-- 卡片2 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 fade-in">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3 text-center">历史唯物主义</h3>
+                    <p class="text-gray-600 text-center">
+                        揭示了人类社会发展的一般规律，认为社会存在决定社会意识，生产力决定生产关系，经济基础决定上层建筑，人民群众是历史的创造者。
+                    </p>
+                </div>
+                <!-- 卡片3 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 fade-in">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-sack-dollar text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3 text-center">剩余价值理论</h3>
+                    <p class="text-gray-600 text-center">
+                        揭示了资本主义剥削的秘密，指出剩余价值是由雇佣工人创造的被资本家无偿占有的超过劳动力价值的价值。
+                    </p>
+                </div>
+                <!-- 卡片4 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 fade-in">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa-solid fa-flag text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-secondary mb-3 text-center">科学社会主义</h3>
+                    <p class="text-gray-600 text-center">
+                        论证了无产阶级推翻资本主义制度、建立社会主义制度的历史必然性，指明了实现共产主义的道路和方向。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心观点详解 -->
+    <section id="core" class="py-20 bg-secondary/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary mb-4">核心观点详解</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    马克思主义基本原理是一个完整的科学体系，其核心观点贯穿于各个组成部分，是理解和运用马克思主义的关键。
+                </p>
+            </div>
+
+            <!-- 核心观点内容 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- 左侧图文 -->
+                <div class="fade-in">
+                    <img src="https://picsum.photos/id/1059/800/600" alt="马克思著作" class="w-full h-auto rounded-xl shadow-lg mb-6">
+                    <img src="https://picsum.photos/id/1071/800/600" alt="马克思与恩格斯" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                <!-- 右侧内容 -->
+                <div class="flex flex-col gap-6 fade-in">
+                    <!-- 观点1 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> 实践是认识的基础
+                        </h3>
+                        <p class="text-gray-600">
+                            实践决定认识，实践是认识的来源、动力、目的和检验真理的唯一标准。认识对实践具有反作用，正确的认识推动实践发展，错误的认识阻碍实践发展。
+                        </p>
+                    </div>
+                    <!-- 观点2 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> 矛盾是事物发展的动力
+                        </h3>
+                        <p class="text-gray-600">
+                            矛盾具有普遍性和特殊性，主要矛盾和次要矛盾、矛盾的主要方面和次要方面相互作用，推动事物的运动、变化和发展。具体问题具体分析是马克思主义活的灵魂。
+                        </p>
+                    </div>
+                    <!-- 观点3 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> 生产力与生产关系的矛盾运动
+                        </h3>
+                        <p class="text-gray-600">
+                            生产力是社会发展的最终决定力量，生产关系必须适应生产力的发展状况。当生产关系阻碍生产力发展时，就会发生社会革命，建立新的生产关系。
+                        </p>
+                    </div>
+                    <!-- 观点4 -->
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                        <h3 class="text-xl font-bold text-primary mb-3 flex items-center">
+                            <i class="fa-solid fa-check-circle mr-2"></i> 人的自由全面发展
+                        </h3>
+                        <p class="text-gray-600">
+                            共产主义社会的根本特征是人的自由而全面的发展，这是马克思主义追求的根本价值目标，也是社会发展的最终归宿。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实践意义 -->
+    <section id="practice" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-secondary mb-4">马克思主义的当代实践意义</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    马克思主义不是教条，而是行动的指南，它始终保持着强大的生命力，为当代中国发展和人类进步提供了重要的理论指引。
+                </p>
+            </div>
+
+            <!-- 实践意义卡片 -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 卡片1 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 fade-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1039/600/400" alt="中国特色社会主义" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-3">指导中国特色社会主义实践</h3>
+                        <p class="text-gray-600">
+                            马克思主义基本原理同中国具体实际相结合，形成了中国特色社会主义理论体系，指引中国实现了从站起来、富起来到强起来的伟大飞跃。
+                        </p>
+                    </div>
+                </div>
+                <!-- 卡片2 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 fade-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1048/600/400" alt="解决全球性问题" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-3">破解全球性发展难题</h3>
+                        <p class="text-gray-600">
+                            马克思主义关于人类社会发展规律的认识，为解决贫富差距、生态危机、全球治理等全球性问题提供了科学的方法论指导。
+                        </p>
+                    </div>
+                </div>
+                <!-- 卡片3 -->
+                <div class="bg-neutral rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 fade-in">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1068/600/400" alt="青年成长" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-secondary mb-3">引领青年成长成才</h3>
+                        <p class="text-gray-600">
+                            马克思主义为青年树立正确的世界观、人生观、价值观提供了思想武器，帮助青年认清历史发展趋势，肩负起时代赋予的使命。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典名言 -->
+    <section id="quotes" class="py-20 bg-secondary relative overflow-hidden">
+        <!-- 背景装饰 -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://picsum.photos/id/1078/1920/1080" alt="背景" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4">马克思经典名言</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            </div>
+
+            <!-- 名言轮播 -->
+            <div class="max-w-4xl mx-auto text-center h-40 overflow-hidden fade-in">
+                <div class="quote-slide absolute w-full top-0 left-0">
+                    <p class="text-white text-[clamp(1.2rem,2vw,1.5rem)] italic mb-4">
+                        "科学绝不是一种自私自利的享乐。有幸能够致力于科学研究的人，首先应该拿自己的学识为人类服务。"
+                    </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- 关于我们 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">关于本站</h3>
+                    <p class="text-gray-400">
+                        本站旨在宣传马克思主义基本原理，普及马克思主义科学理论，推动马克思主义中国化时代化大众化。
+                    </p>
+                </div>
+                <!-- 快速链接 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">快速链接</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#hero" class="hover:text-primary transition-colors">首页</a></li>
+                        <li><a href="#overview" class="hover:text-primary transition-colors">原理概述</a></li>
+                        <li><a href="#core" class="hover:text-primary transition-colors">核心观点</a></li>
+                        <li><a href="#practice" class="hover:text-primary transition-colors">实践意义</a></li>
+                    </ul>
+                </div>
+                <!-- 联系我们 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-primary">联系我们</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span>1182453652@qq.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <span>18946153954</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>© 2025 贲放“ 版权所有 贲放”土豆“ | 设计与开发：”只求元“</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+
+            // 滚动动画
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementBottom = element.getBoundingClientRect().bottom;
+                if (elementTop < window.innerHeight - 100 && elementBottom > 0) {
+                    element.classList.add('show');
+                }
+            });
+        });
+
+        // 移动端菜单
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 页面加载时触发一次滚动事件
+        window.addEventListener('load', function() {
+            window.dispatchEvent(new Event('scroll'));
+        });
+    </script>
+</body>
+</html>
